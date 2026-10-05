@@ -1,4 +1,5 @@
 # model_narrator.py
+import re
 from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
 
 MODEL_NAME = "sshleifer/distilbart-cnn-6-6"
@@ -41,7 +42,10 @@ def model_narration(turns, max_len=80, min_len=25):
             skip_special_tokens=True,
             clean_up_tokenization_spaces=False,
         )
+        # Remove space before punctuation (BPE artifact)
+        result = re.sub(r'\s+([.,!?])', r'\1', result)
         return result.strip()
+        
     except Exception as e:
         return f"[Model error: {e}]"
 
