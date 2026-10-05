@@ -3,7 +3,7 @@ import spacy
 
 nlp = spacy.load("en_core_web_sm")
 
-# Words that shift when converting to reported speech
+
 TIME_WORDS = {
     "now": "then",
     "today": "that day",
@@ -21,7 +21,7 @@ MODAL_MAP = {
     "shall": "should",
     "can": "could",
     "may": "might",
-    "must": "must",   # stays
+    "must": "must",   
     "would": "would",
     "should": "should",
     "could": "could",
@@ -135,7 +135,7 @@ def analyze_turn(turn):
     turn["main_verb"] = extract_main_verb(doc)
     turn["pronouns"] = extract_pronouns(doc)
     turn["time_words"] = extract_time_words(doc)
-    turn["doc"] = doc  # keep for converter (we'll remove before saving)
+    turn["doc"] = doc  
 
     return turn
 
@@ -152,6 +152,6 @@ if __name__ == "__main__":
     analyzed = analyze_dialogue(turns)
 
     for t in analyzed:
-        # We can't print the spaCy doc nicely, so strip it
+        
         printable = {k: v for k, v in t.items() if k != "doc"}
         print(json.dumps(printable, indent=2))

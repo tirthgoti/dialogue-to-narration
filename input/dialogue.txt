@@ -1,2 +1,4 @@
-Sam: "I will call you tomorrow."
-Lisa: "I am busy now."
+John: "Where are you going?"
+Mary: "I am going to the market."
+John: "Will you come back soon?"
+Mary: "Yes, I will be back in an hour."

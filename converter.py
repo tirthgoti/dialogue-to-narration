@@ -4,9 +4,8 @@ import spacy
 
 nlp = spacy.load("en_core_web_sm")
 
-# ---------------- Config ----------------
 
-# Maps for the SPEAKER (applies to I/me/my/we/us/our...)
+
 SPEAKER_MAP_MALE = {
     "i": "he", "me": "him", "my": "his", "mine": "his", "myself": "himself",
     "we": "they", "us": "them", "our": "their", "ours": "theirs", "ourselves": "themselves",
